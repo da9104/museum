@@ -1,6 +1,7 @@
 body {
-  //  padding-top: 3rem;
-    padding-bottom: 3rem;
+   //  padding-top: 3rem;
+   //  padding-bottom: 3rem;
+    margin: 0;
     color: #5a5a5a;
     box-sizing: border-box;
   }
@@ -10,6 +11,15 @@ body {
       text-transform: uppercase;
       font-size: .9rem;
   }
+//   .nav-link::after {
+//       margin-left: .6rem;
+//       content: '|';
+//   }
+
+
+#logo {
+    width: 200px;
+}
 
   /* Carousel base class */
   .carousel {
@@ -26,6 +36,12 @@ body {
     height: 32rem;
   }
   
+
+.carousel-caption h2 {
+    margin-bottom: 100px;
+}
+
+
   
   /* Center align the text within the three columns below the carousel */
   .marketing .col-lg-4 {
@@ -99,3 +115,34 @@ body {
     
   }
   
+footer {
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    background-color: #A8DADC;
+}
+
+footer h1 {
+    color: #707070;
+}
+
+#footer-logo {
+    width: 150px; 
+    height: 150px;
+    border:0px solid gray;
+    top: -50px;
+    bottom: 0;
+    position: relative;
+}
+
+.footer-logo {
+    margin: 0;
+    padding: 0;
+    // display: flex;
+    // flex-direction: column;
+}
+
+footer .container .footer-logo {
+    background-color: #A8DADC;
+
+}

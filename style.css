@@ -1,5 +1,5 @@
 body {
-  padding-bottom: 3rem;
+  margin: 0;
   color: #5a5a5a;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -8,6 +8,10 @@ body {
 .nav-item {
   text-transform: uppercase;
   font-size: .9rem;
+}
+
+#logo {
+  width: 200px;
 }
 
 /* Carousel base class */
@@ -24,6 +28,10 @@ body {
 /* Declare heights because of positioning of img element */
 .carousel-item {
   height: 32rem;
+}
+
+.carousel-caption h2 {
+  margin-bottom: 100px;
 }
 
 /* Center align the text within the three columns below the carousel */
@@ -82,5 +90,34 @@ body {
   height: 100%;
   background-size: cover;
   color: white;
+}
+
+footer {
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  background-color: #A8DADC;
+}
+
+footer h1 {
+  color: #707070;
+}
+
+#footer-logo {
+  width: 150px;
+  height: 150px;
+  border: 0px solid gray;
+  top: -50px;
+  bottom: 0;
+  position: relative;
+}
+
+.footer-logo {
+  margin: 0;
+  padding: 0;
+}
+
+footer .container .footer-logo {
+  background-color: #A8DADC;
 }
 /*# sourceMappingURL=style.css.map */
