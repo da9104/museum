@@ -1,17 +1,16 @@
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
-
 body {
-    padding-top: 3rem;
+  //  padding-top: 3rem;
     padding-bottom: 3rem;
     color: #5a5a5a;
+    box-sizing: border-box;
   }
   
-  
-  /* CUSTOMIZE THE CAROUSEL
-  -------------------------------------------------- */
-  
+
+  .nav-item {
+      text-transform: uppercase;
+      font-size: .9rem;
+  }
+
   /* Carousel base class */
   .carousel {
     margin-bottom: 4rem;
@@ -28,9 +27,6 @@ body {
   }
   
   
-  /* MARKETING CONTENT
-  -------------------------------------------------- */
-  
   /* Center align the text within the three columns below the carousel */
   .marketing .col-lg-4 {
     margin-bottom: 1.5rem;
@@ -44,23 +40,14 @@ body {
   /* rtl:end:ignore */
   
   
-  /* Featurettes
-  ------------------------- */
-  
   .featurette-divider {
     margin: 5rem 0; /* Space out the Bootstrap <hr> more */
   }
   
-  /* Thin out the marketing headings */
-  /* rtl:begin:remove */
   .featurette-heading {
     letter-spacing: -.05rem;
   }
   
-  /* rtl:end:remove */
-  
-  /* RESPONSIVE CSS
-  -------------------------------------------------- */
   
   @media (min-width: 40em) {
     /* Bump up size of carousel content */
@@ -76,7 +63,39 @@ body {
   }
   
   @media (min-width: 62em) {
+
+      .navbar-brand {
+        display: block;
+       }
+
     .featurette-heading {
       margin-top: 7rem;
     }
   }
+
+  @media (min-width: 400px) {
+    .navbar-brand {
+     display: none;
+    }
+}
+
+//   .bd-placeholder-img {
+//     font-size: 1.125rem;
+//     text-anchor: middle;
+//     -webkit-user-select: none;
+//     -moz-user-select: none;
+//     user-select: none;
+//     z-index: -1;
+//   }
+  
+  .img-gradient {
+    background-image:
+    linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(198, 205, 191, 0.73)),
+    url('./assets/images/bg.jpeg');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    color: white;
+    
+  }
+  
