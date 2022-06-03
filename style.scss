@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;300;500;600;800;900&display=swap');
+
 body {
    //  padding-top: 3rem;
    //  padding-bottom: 3rem;
     margin: 0;
     color: #5a5a5a;
     box-sizing: border-box;
-  }
+    font-family: 'Work Sans', sans-serif;
+}
   
+a {
+  text-decoration: none;
+}
 
   .nav-item {
       text-transform: uppercase;
@@ -114,6 +120,40 @@ body {
     color: white;
     
   }
+
+  .img-gradient-1 {
+    background-image:
+    linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(198, 205, 191, 0.73)),
+    url('./assets/images/bg2.jpeg');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    color: white;
+  }
+
+
+  .img-gradient-2 {
+    background-image:
+    linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(198, 205, 191, 0.73)),
+    url('./assets/images/bg3.jpg');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    color: white;
+  }
+  
+
+
+  .img-about {
+    background-image:
+    linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(198, 205, 191, 0.73)),
+    url('./assets/images/gallery2.jpg');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    color: white;
+    
+  }
   
 footer {
     margin-bottom: 0;
@@ -123,6 +163,8 @@ footer {
 }
 
 footer h1 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
     color: #707070;
 }
 
@@ -152,4 +194,13 @@ footer .container .footer-logo {
 }
 .scrolled-up{
   transform:translateY(0); transition: all 0.3s ease-in-out;
+}
+
+
+.item {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: 100px;
+  margin: auto;
 }

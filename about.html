@@ -6,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Museums Scotland</title>
     <link rel="stylesheet" href="./style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/9c05ce6683.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+  
+
+  </head>
+  <body>
     <style>
        
         @media (min-width: 768px) {
@@ -61,24 +67,24 @@
         }
       </style>
   
-      
+
     </head>
     <body>
       
   <header>
-    <nav class="navbar navbar-expand-md fixed-top bg-transparent">
+    <nav class="autohide navbar navbar-expand-md fixed-top bg-transparent">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"><i class="fas fa-bars"></i></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <div class="collapse navbar-collapse justify-content-end " id="navbarCollapse" >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="./about.html">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Gallery</a>
@@ -104,20 +110,29 @@
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-            <div class="img-gradient">
-            <!-- <img src="./assets/images/bg.jpeg" alt="" class="bd-placeholder-img" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false" width="100%" height="100%"> -->
+            <div class="img-about">
             </div>
 
           <div class="container">
             <div class="carousel-caption text-center">
-                <img src="./assets/images/logo.png" alt="" id="logo">
-              <h2>Welcome to Kelvingrove  <br/>
-                Art Gallery and Museum</h2>
+                <h6
+                data-aos="fade-down"
+                data-aos-delay="5"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out">
+                About</h6>
+                <!-- <p>Some representative placeholder content for the second slide of the carousel.</p> -->
+              <h2
+              class="text-center"
+                data-aos="fade-up"
+                data-aos-delay="5"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out" >
+                Who We Are  <br/>
+              </h2>
               <!-- <p>Welcome to Kelvingrove 
                 Art Gallery and Museum</p> -->
               <!-- <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p> -->
@@ -125,69 +140,105 @@
           </div>
         </div>
 
-        <div class="carousel-item">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-  
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Some representative placeholder content for the second slide of the carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-  
-          <div class="container">
-            <div class="carousel-caption text-end">
-              <h1>One more for good measure.</h1>
-              <p>Some representative placeholder content for the third slide of this carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-            </div>
-          </div>
-        </div>
       </div>
-
-      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button> -->
-      <!-- <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button> -->
     </div>
   
-  
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-  
+    <!-- Carousel END-->
+
+
     <div class="container marketing">
+
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2 justify-content">
+          <h2 class="featurette-heading fw-normal lh-1">
+            Kelvingrove Museum opened in 1901
+              <span class="text-muted fs-5 lh-1 fw-bold"> and is a firm favourite with local people and visitors. It has stunning architecture and a family friendly atmosphere.</span>
+            </h2>
+          <p class="lead fs-6">
+            Explore our 22 galleries and discover everything from art to animals, 
+            Ancient Egypt to Charles Rennie Mackintosh and so much more. 
+            We also have a changing programme of temporary exhibitions and displays.
+          </p>
+          <p class="text-end">
+              <a class="btn btn-lg btn-primary fs-6" href="#">Learn more today</a>
+          </p>
+
+        </div>
+        <div class="col-md-5 order-md-1 d-flex align-items-center justify-content">
+            <img src="./assets/images/photo 1.png" alt="" class="featurette-image img-fluid mx-auto d-flex align-items-center justify-content" width="300" height="300">
+         
+            <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#eee"/>
+              <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+            </svg> -->
+  
+        </div>
+
+
+      </div>
+  
+      <hr class="featurette-divider">
+
+
+
+
   
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+           
+
+          <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+           
+              <rect width="100%" height="100%" fill="#777"/>
+              <text x="50%" y="50%" fill="#777" dy=".3em">
+              
+              </text>
+            </svg> -->
+
+            <div class="bd-placeholder-img rounded-circle d-flex justify-content-center" style="background:MistyRose;  width:140px; height:140px; margin:0 auto; " >
+                <i class="far fa-3x fa-bell text-center align-items-center"  style=" color: #1c7ed6;  margin:30% auto; "></i>
+           </div>
   
-          <h2 class="fw-normal">Heading</h2>
-          <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+          <h2 class="fw-normal">WE ARE FREE</h2>
+          <p> 
+            No need to book, <br/>
+            just drop in. <br/>
+            Regular opening hours <br/>
+
+          </p>
           <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-  
+
+            <div class="bd-placeholder-img rounded-circle d-flex justify-content-center" style="background: #1c7ed6; opacity: .6;  width:140px; height:140px; margin:0 auto; z-index: -1;" >
+                <i class="far fa-clock fa-3x text-center align-items-center"  style=" color: MistyRose;  margin:30% auto; "></i>
+           </div>
+
           <h2 class="fw-normal">Heading</h2>
-          <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+          <p>
+            Monday - Thursday <br/>
+            Saturday: 10am-5pm <br/>
+            Friday and Sunday: 11am-5pm <br/>
+          </p>
           <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+         
+         
+            <div class="bd-placeholder-img rounded-circle d-flex justify-content-center" style="background:MistyRose;  width:140px; height:140px; margin:0 auto; " >
+                <i class="fas fa-seedling fa-3x text-center align-items-center"  style=" color: #1c7ed6;  margin:30% auto; "></i>
+           </div>
   
           <h2 class="fw-normal">Heading</h2>
-          <p>And lastly this, the third column of representative placeholder content.</p>
+          <p>
+            The organ recitals will be <br/>
+            performed daily at 1pm, <br/>
+            Sundays, they will be at 3pm. <br/>          
+          </p>
           <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
@@ -210,18 +261,6 @@
   
       <hr class="featurette-divider">
   
-      <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
-        </div>
-        <div class="col-md-5 order-md-1">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-  
-        </div>
-      </div>
-  
-      <hr class="featurette-divider">
   
       <div class="row featurette">
         <div class="col-md-7">
@@ -238,20 +277,146 @@
   
       <!-- /END THE FEATURETTES -->
   
+      <div class="owl-carousel owl-theme">
+        <div class="item">
+          <h4>1</h4>
+        </div>
+        <div class="item">
+          <h4>2</h4>
+        </div>
+        <div class="item">
+          <h4>3</h4>
+        </div>
+        <div class="item">
+          <h4>4</h4>
+        </div>
+        <div class="item">
+          <h4>5</h4>
+        </div>
+        <div class="item">
+          <h4>6</h4>
+        </div>
+        <div class="item">
+          <h4>7</h4>
+        </div>
+        <div class="item">
+          <h4>8</h4>
+        </div>
+        <div class="item">
+          <h4>9</h4>
+        </div>
+        <div class="item">
+          <h4>10</h4>
+        </div>
+        <div class="item">
+          <h4>11</h4>
+        </div>
+        <div class="item">
+          <h4>12</h4>
+        </div>
+      </div>
+
+
+
     </div><!-- /.container -->
-  
-  dddddd
 
-
+    
     <!-- FOOTER -->
-    <footer class="container">
-      <p class="float-end"><a href="#">Back to top</a></p>
+    <footer>
+     <div class="container">
+      <div class="footer-logo float-end">
+          <img src="./assets/images/logo.png" alt="" class="rounded-circle" id="footer-logo">
+          <a href="#" class="text-center d-flex justify-content-center align-self-center">Back to top</a>
+   
+        </div>
+
+      <h1 class="">
+        Kelvingrove <br/>
+        Art Gallery and Museum
+      </h1>
+      <p class="mb-0">PEOPLE MAKE GLASGOW - Glasgow Life</p>
+
       <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </div>
     </footer>
+
   </main>
 
 
 
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+el_autohide = document.querySelector('.autohide');
+// add padding-top to bady (if necessary)
+navbar_height = document.querySelector('.navbar').offsetHeight;
+document.body.style.paddingTop = navbar_height + 'px';
+
+if(el_autohide){
+  var last_scroll_top = 0;
+  window.addEventListener('scroll', function() {
+        let scroll_top = window.scrollY;
+       if(scroll_top < last_scroll_top) {
+            el_autohide.classList.remove('scrolled-down');
+            el_autohide.classList.add('scrolled-up');
+        }
+        else {
+            el_autohide.classList.remove('scrolled-up');
+            el_autohide.classList.add('scrolled-down');
+        }
+        last_scroll_top = scroll_top;
+  }); 
+  // window.addEventListener
+}
+// if
+
+}); 
+// DOMContentLoaded  end
+
+</script>
+
+
+<script>
+
+  var owl = $('.owl-carousel');
+  owl.owlCarousel({
+      loop:true,
+      nav:true,
+      margin:10,
+      responsive:{
+          0:{
+              items:1
+          },
+          600:{
+              items:3
+          },            
+          960:{
+              items:5
+          },
+          1200:{
+              items:6
+          }
+      }
+  });
+  owl.on('mousewheel', '.owl-stage', function (e) {
+      if (e.deltaY>0) {
+          owl.trigger('next.owl');
+      } else {
+          owl.trigger('prev.owl');
+      }
+      e.preventDefault();
+  });
+
+</script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+
 </html>
