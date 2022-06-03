@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "owl.carousel": "^2.3.4"
-  }
+  },
+  "name": "museum",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/da9104/museum.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/da9104/museum/issues"
+  },
+  "homepage": "https://github.com/da9104/museum#readme",
+  "description": ""
 }
