@@ -120,4 +120,18 @@ footer h1 {
 footer .container .footer-logo {
   background-color: #A8DADC;
 }
+
+.scrolled-down {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.scrolled-up {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
 /*# sourceMappingURL=style.css.map */

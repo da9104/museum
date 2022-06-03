@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Museums Scotland</title>
     <link rel="stylesheet" href="./style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/9c05ce6683.js" crossorigin="anonymous"></script>
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
+
+  </head>
 <body>
 
 
@@ -68,13 +70,13 @@
     <body>
       
   <header>
-    <nav class="navbar navbar-expand-md fixed-top bg-transparent">
+    <nav class="autohide navbar navbar-expand-md fixed-top bg-transparent">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"><i class="fas fa-bars"></i></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <div class="collapse navbar-collapse justify-content-end " id="navbarCollapse" >
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -289,6 +291,9 @@
   
     </div><!-- /.container -->
   
+
+
+
   
     <!-- FOOTER -->
     <footer>
@@ -311,5 +316,39 @@
 
 
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+el_autohide = document.querySelector('.autohide');
+// add padding-top to bady (if necessary)
+navbar_height = document.querySelector('.navbar').offsetHeight;
+document.body.style.paddingTop = navbar_height + 'px';
+
+if(el_autohide){
+  var last_scroll_top = 0;
+  window.addEventListener('scroll', function() {
+        let scroll_top = window.scrollY;
+       if(scroll_top < last_scroll_top) {
+            el_autohide.classList.remove('scrolled-down');
+            el_autohide.classList.add('scrolled-up');
+        }
+        else {
+            el_autohide.classList.remove('scrolled-up');
+            el_autohide.classList.add('scrolled-down');
+        }
+        last_scroll_top = scroll_top;
+  }); 
+  // window.addEventListener
+}
+// if
+
+}); 
+// DOMContentLoaded  end
+
+</script>
+
 </html>
