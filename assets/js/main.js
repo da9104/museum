@@ -1,3 +1,8 @@
+
+// try {
+//     const config = {headers: {Accept: 'application/json'}
+//  }
+
 $(function() {
 
 	'use strict';
