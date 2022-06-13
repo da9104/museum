@@ -64,10 +64,43 @@
           text-align: center;
           white-space: nowrap;
           -webkit-overflow-scrolling: touch;
-        }
+          }
 
+          #gfg:hover {
+            /* transition-property: background-size; */
+            opacity: .6;
+            transition: transform .3s ease-in-out;
+            animation-name: move;
+            animation-duration: .3s;
+            animation-timing-function: ease-in-out;
+          }
+          @keyframes move {
+            from {  transform:scale(102%); 
+                     font-size: 1.5rem;
+                     background-origin: content-box;
+    
+                     }
+                 }
+              to {    transform:scale(100%);               
+                      font-size: 1.5rem;
+                      background-origin: content-box;
+              }
+           
       </style>
-  
+     <script>
+  //   function mouseover() {
+  //       // document.getElementById("gfg").style.backgroundSize = "130%";
+  //       document.getElementById("gfg").style.transition = "all .3s ease-in-out";
+  //       document.getElementById("gfg").classList.toggle('move');
+  //   }
+     
+  //   function mouseout() {
+  //       document.getElementById("gfg").style.backgroundSize = "cover";
+  //       document.getElementById("gfg").classList.toggle('move');
+  // }
+
+
+</script>
 
     </head>
     <body>
@@ -231,7 +264,13 @@
                 
                 <div class="col" >
                   <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" 
-                  style="background-image: url('https://d3d00swyhr67nd.cloudfront.net/w550/GM_location_image_3.jpg'); background-size: cover; background-repeat: no-repeat;"
+                  style="background-image: url('https://d3d00swyhr67nd.cloudfront.net/w550/GM_location_image_3.jpg'); 
+                  background-size: cover; 
+                  background-position: center top;
+                  background-repeat: no-repeat;"
+                  onmouseover="mouseover()"
+                  onmouseout="mouseout()"
+                  id="gfg"
                   >
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                       <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
@@ -254,7 +293,13 @@
           
                 <div class="col">
                   <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" 
-                  style="background-image: url('https://d3d00swyhr67nd.cloudfront.net/w550/GM_location_image_2.jpg');">
+                  style="background-image: url('https://d3d00swyhr67nd.cloudfront.net/w550/GM_location_image_2.jpg');
+                  background-size: cover; 
+                  background-repeat: no-repeat;"
+                  onmouseover="mouseover()"
+                  onmouseout="mouseout()"
+                  id="gfg"
+                  ">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                       <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
                       <ul class="d-flex list-unstyled mt-auto">
@@ -275,7 +320,15 @@
                 </div>
           
                 <div class="col">
-                  <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+                  <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" 
+                  style="background-image: url('unsplash-photo-3.jpg');"
+                  background-size: cover; 
+                  background-position: center top;
+                  background-repeat: no-repeat;"
+                  onmouseover="mouseover()"
+                  onmouseout="mouseout()"
+                  id="gfg"
+                  >
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
                       <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
                       <ul class="d-flex list-unstyled mt-auto">
@@ -299,7 +352,14 @@
               <!-- <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5"> -->
                 
                 <div class="col">
-                  <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+                  <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" 
+                  style="background-image: url('unsplash-photo-1.jpg');"
+                  background-size: cover; 
+                  background-position: center top;
+                  background-repeat: no-repeat;"
+                  onmouseover="mouseover()"
+                  onmouseout="mouseout()"
+                  id="gfg">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                       <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
                       <ul class="d-flex list-unstyled mt-auto">

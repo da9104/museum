@@ -24,6 +24,10 @@ a, a:hover {
   text-decoration: none !important;
 }
 
+ul, li {
+  list-style: none;
+}
+
 .nav-item {
   text-transform: uppercase;
   font-size: .9rem;
