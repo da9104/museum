@@ -1,3 +1,8 @@
+<?php
+    include_once 'includes/header.php';
+    $posts = getPosts($conn, $_GET['id'] ?? null);
+    $users = getUsers($conn);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +18,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  
 
   </head>
   <body>
@@ -94,16 +98,16 @@
         <div class="collapse navbar-collapse justify-content-end mx-5" id="navbarCollapse" >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./about.html">About</a>
+              <a class="nav-link" href="./about.php">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./gallery.html">Gallery</a>
+              <a class="nav-link" href="./gallery.php">Gallery</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./event.html">Event</a>
+              <a class="nav-link" href="./event.php">Event</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./contact.html">Contact</a>
@@ -435,6 +439,7 @@
     </footer>
 
   </main>
+
 
 
 
