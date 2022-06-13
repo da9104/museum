@@ -245,20 +245,22 @@
         <h1 class="font-bold text-2xl mb-10">Add Article</h1>
         <div class="md:w-8/12 lg:w-5/12 lg:ml-0 xl:w-96">
             <form action="add.php" method="post">
-              <div class="form-group mb-6">
-              <select name="author_id" id="author_id">
+              <div class="form-group mb-3">
+              <select name="author_id" id="author_id" class="mb-3">
               <?php foreach ($users as $user): ?>
                   <option value="<?= $user->id ?>"><?= $user->first_name ?></option>
                <?php endforeach; ?>
               </select>
-                <input type="text" 
+                <input 
+                type="text" 
                 name="title" 
                 placeholder="Title" 
                 class="form-control" 
                 id=""
-                placeholder="Title">
+                placeholder="Title"
+                >
               </div>
-               <div class="form-group mb-6">
+               <div class="form-group mb-3">
                 <textarea
                 name="body"
                 class="form-control "

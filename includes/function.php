@@ -1,5 +1,4 @@
 <?php
-//include_once 'db-connx.php';
 function Signup(array $data) 
 {
     $Data = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
@@ -190,7 +189,7 @@ function createPost($conn, array $postData)
 function updatePost($conn, array $postData)
 {
     // base query string
-    $queryString = 'UPDATE posts SET `author_id` = :author_id, WHERE `id` = :id, `title` = :title, `brand` = :brand, `price` = :price, `con` = :con, `body` = :body';
+    $queryString = 'UPDATE posts SET `author_id` = :author_id, WHERE `id` = :id, `title` = :title,`body` = :body';
 
     // prepare and execute query
     $query = $conn->prepare($queryString);

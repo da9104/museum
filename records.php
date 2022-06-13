@@ -1,7 +1,16 @@
-<?php 
- include_once 'includes/header.php';
- if (!isset($_SESSION['current_session'])) header('Location: login.php'); 
-     $post = getPosts($conn, $_GET['id'] ?? null);
+<?php
+    include_once 'includes/header.php';
+
+    if (isset($_POST['author_id'], $_POST['title'], $_POST['body'])) {
+        deletePost($conn, [
+              'id' => $_GET['id'],
+              'author_id' => $_POST['author_id'],
+              'title' => $_POST['title'],
+              'body' => $_POST['body'],
+          ]);
+      }
+
+    $posts = getPosts($conn, $_GET['id'] ?? null);
     $users = getUsers($conn);
 ?>
 <!DOCTYPE html>
@@ -34,7 +43,6 @@
   </head>
   <body>
     <style>
-
         @media (min-width: 768px) {
           .bd-placeholder-img-lg {
             font-size: 3.5rem;
@@ -82,28 +90,21 @@
           -webkit-overflow-scrolling: touch;
         }
 
-
-          main {
-            /* display: flex;
-            align-items: center;
-            padding-top: 40px;
-            padding-bottom: 40px;
-            background-color: #f5f5f5; */
-          }
-
-          .form-admin {
+          .form-add {
             display: flex;
             flex-direction: columns;
             justify-content: center;
-            align-content: center;
-            margin: 0 auto;
-            max-width: 330px;
-            padding: 15px;
+            align-content: center
           }
 
-        
+          .form-add div {
+            max-width: 530px;
+            /* //padding: 15px; */
+          }
 
-       
+          .form-add .form-floating:focus-within {
+            z-index: 2;
+          }
       </style>
   
 
@@ -210,7 +211,7 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-            <div class="img-contact">
+            <div class="img-register">
             </div>
 
           <div class="container">
@@ -220,7 +221,7 @@
                 data-aos-delay="5"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out">
-                Admin</h6>
+                Sign up</h6>
                 <!-- <p>Some representative placeholder content for the second slide of the carousel.</p> -->
               <h2
               class="text-center"
@@ -228,7 +229,7 @@
                 data-aos-delay="5"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out" >
-                Welcome <br/>
+                Join us today  <br/>
               </h2>
               <!-- <p>Welcome to Kelvingrove 
                 Art Gallery and Museum</p> -->
@@ -242,47 +243,76 @@
   
     <!-- Carousel END-->
 
-    <section class="form-admin">
-    <div class="container px-3 py-3 mt-20">
-      <div class="">
-        <h1 class="font-bold text-2xl mb-4">Dash Board</h1>
-        <p class="text-center mb-5">
-        <?php if (isset($_SESSION['current_session'])) : ?> 
-          Welcome <?php foreach ($users as $user): ?>
-                  <?= $user->first_name ?> </br/>
-                  <span> Your last logged in  <?= $user->updated_at ?>  </span>
-                  <?php endforeach; ?>    
-        <?php endif ?> 
-        </p>
-        <div class="">
-            <!-- Submit button -->
-            <a
-              href="./add.php"
-              class="text-center "
-            >
-             Add a record
-             </a>
-          <br/>
-            <a
-            href="./records.php"
-            class="text-center"
-          >
-           Edit / Delete a record
-          </a>
-          <br/>
-          <a
-          href="./records.php"
-          class="text-center"
-        >
-        View a record
-        </a>
-        <!-- <p class="text-center mt-12"> Forgotten Password?<b><a href="#">  Update password</a> </b></p> -->
-        <p class="text-center mt-5"> Have a nice day,<b><a href="./logout.php">  Log out</a> </b></p>
-        </div>
+
+ <div class="container">
+    <?php if (isset($_GET['id'])): ?>
+          <a class=" lg:ml-20 sm:ml-10" href="edit.php?id=<?= $_GET['id'] ?>">Update post</a>
+      <?php else: ?>
+          <a class=" lg:ml-20 sm:ml-10" href="add.php">Create a new post</a>
+      <?php endif; ?>
+ </div>
+
+    <div class="container py-5">
+          
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4" data-masonry='{"percentPosition": true }'  >
+<?php foreach ($posts as $post): ?>
+  <div class="col" >
+  <form action="records.php" method="POST">
+    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" 
+    style="background-image: url('https://d3d00swyhr67nd.cloudfront.net/w550/GM_location_image_3.jpg'); 
+    background-size: cover; 
+    background-position: center top;
+    background-repeat: no-repeat;"
+    id="gfg"
+    >
+      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+          
+        <?= $post->body ?> </h2>
+
+        <ul class="d-flex list-unstyled mt-auto">
+          <li class="me-auto">
+          <button 
+                type="submit"
+                class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                <a href="/delete.php?id=<?= $post->id ?>">Delete</a>
+               </button>        
+           </li>
+         
+          <li class="me-auto">
+          <button 
+                type="submit"
+                class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                <a href="/edit.php?id=<?= $post->id ?>">Edit</a>
+               </button>
+          </li>
+
+          <li class="d-flex align-items-center me-3">
+            
+            <small> by: </small>
+          </li>
+          <li class="d-flex align-items-center">
+
+            <small> 
+                <?php
+                    $user = getUserWithId($conn, $post->author_id);
+                ?>
+                  <span><?= $user->first_name ?></span>
+            </small>
+          </li>
+
+        </ul>
       </div>
     </div>
-  </section>
-    
+  </div>
+</form>
+  <?php endforeach; ?>
+
+  
+<!-- </div> -->
+</div>
+</div>
+
     <br />
 
     <!-- FOOTER -->
