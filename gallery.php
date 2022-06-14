@@ -174,11 +174,11 @@
             <li><a class="dropdown-item" href="./event.php">Event</a></li>
             <li><a class="dropdown-item" href="./contact.php">Contact</a></li>        
       <?php 
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $db= "museum";
-        $conn = mysqli_connect($servername, $username, $password, $db);
+       $dbHost = 'localhost';
+       $dbName = 'id19106224_museum';  // local machine: museum
+       $dbUser = 'id19106224_admin';   // local machine: root
+       $dbPass = 'Q^/$^9[)0aV5e&rs';       //local machine: '';
+        $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
         if (!$conn) {
           die('Could not connect: ' . mysqli_error());  
         }
@@ -197,7 +197,22 @@
             else {
                 echo "0 results";
             }
-        ?>
+  ?>
+
+          <?php
+          // (B) PROCESS SEARCH WHEN FORM SUBMITTED
+          if (isset($_POST["search"])) {
+            // (B1) SEARCH FOR USERS
+            require "search.php";
+
+            // (B2) DISPLAY RESULTS
+            if (count($results) > 0) { foreach ($results as $r) {
+              printf("<div>%s - %s</div>", $r["title"], $r["body"]);
+            }} else { echo "No results found"; }
+          }
+          ?>
+
+     
             <?php if (isset($_SESSION['current_session'])) : ?>
               <li><a class="dropdown-item" href="./admin.php">Admin</a></li>
 
@@ -219,6 +234,22 @@
             <i class="fab fa-flickr"></i>
            </ul>
           </div>
+
+
+            <!-- (A) SEARCH FORM -->
+              <form onsubmit="return ajsearch();" >
+                <h1 class="mt-5">SEARCH</h1>
+                <input type="text" id="search" required/>
+                <input type="submit" value="Search"/>
+              </form>
+
+              <!-- (B) SEARCH RESULTS -->
+              <div id="results" class="mt-3">
+
+              </div>
+
+
+
 
       </div>
     </div>
@@ -336,9 +367,10 @@
     </section >
 
 
+
+
     </div><!-- /.container -->
 
-    
     <!-- FOOTER -->
     <footer>
      <div class="container">
@@ -443,6 +475,29 @@ if(el_autohide){
     AOS.init();
 
   </script>
+<script>
+function ajsearch() {
+  // (A) GET SEARCH TERM
+  var data = new FormData();
+  data.append("search", document.getElementById("search").value);
+  data.append("ajax", 1);
+ 
+  // (B) AJAX SEARCH REQUEST
+  fetch("search.php", { method:"POST", body:data })
+  .then(res => res.json()).then((results) => {
+    var wrapper = document.getElementById("results");
+    if (results.length > 0) {
+      wrapper.innerHTML = "";
+      for (let res of results) {
+        let line = document.createElement("div");
+        line.innerHTML = `${res["title"]} - ${res["body"]}`;
+        wrapper.appendChild(line);
+      }
+    } else { wrapper.innerHTML = "No results found"; }
+  });
+  return false;
+}
+</script>
 
 
 </html>

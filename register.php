@@ -193,9 +193,33 @@ if (isset($_POST) && count($_POST) > 0) {
             <i class="fab fa-facebook-square"></i>
             <i class="fab fa-flickr"></i>
            </ul>
-  
-  
           </div>
+
+          <?php
+          // (B) PROCESS SEARCH WHEN FORM SUBMITTED
+          if (isset($_POST["search"])) {
+            // (B1) SEARCH FOR USERS
+            require "search.php";
+
+            // (B2) DISPLAY RESULTS
+            if (count($results) > 0) { foreach ($results as $r) {
+              printf("<div>%s - %s</div>", $r["title"], $r["body"]);
+            }} else { echo "No results found"; }
+          }
+          ?>
+
+            <!-- (A) SEARCH FORM -->
+              <form onsubmit="return ajsearch();" >
+                <h1 class="mt-5">SEARCH</h1>
+                <input type="text" id="search" required/>
+                <input type="submit" value="Search"/>
+              </form>
+
+              <!-- (B) SEARCH RESULTS -->
+              <div id="results" class="mt-3">
+
+              </div>
+
 
       </div>
     </div>

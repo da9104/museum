@@ -1,11 +1,11 @@
 <?php
 ob_start();
-$conn = new PDO('mysql:host=localhost;dbname=museum;', 'root', '');
+$conn = new PDO('mysql:host=localhost;dbname=id19106224_museum;', 'id19106224_admin', 'Q^/$^9[)0aV5e&rs');
 function DbHandler () {
       $dbHost = 'localhost';
-      $dbName = 'museum';  // local machine: museum
-      $dbUser = 'root';   // local machine: root
-      $dbPass = '';       //local machine: '';
+      $dbName = 'id19106224_museum';  // local machine: museum
+      $dbUser = 'id19106224_admin';   // local machine: root
+      $dbPass = 'Q^/$^9[)0aV5e&rs';       //local machine: '';
       //Create a DSN for the database resource...
       $Dsn = "mysql:host=".$dbHost.";dbname=".$dbName;
       //Create an options configuration for the PDO connection...
