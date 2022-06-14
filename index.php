@@ -1,5 +1,9 @@
 <?php
     include_once 'includes/header.php';
+    if (!isset($_SESSION['current_session']))
+    header('Location: login.php'); 
+    // if (isset($_POST) && count($_POST) > 0) {
+    // $Response = Login($_POST); }
     $posts = getPosts($conn, $_GET['id'] ?? null);
     $users = getUsers($conn);
 ?>
@@ -110,7 +114,7 @@
               <a class="nav-link" href="./event.php">Event</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./contact.html">Contact</a>
+              <a class="nav-link" href="./contact.php">Contact</a>
             </li>
             <li class="nav-item">
               <a class="nav-link"><i class="fas fa-search"></i></a>
@@ -141,12 +145,21 @@
             Menu
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Home</a></li>
-            <li><a class="dropdown-item" href="#">About</a></li>
-            <li><a class="dropdown-item" href="#">Gallery</a></li>
-            <li><a class="dropdown-item" href="#">Event</a></li>
-            <li><a class="dropdown-item" href="#">Contact</a></li>
-            <li><a class="dropdown-item" href="#">Sign in</a></li>
+            <li><a class="dropdown-item" href="./index.php">Home</a></li>
+            <li><a class="dropdown-item" href="./about.php">About</a></li>
+            <li><a class="dropdown-item" href="./gallery.php">Gallery</a></li>
+            <li><a class="dropdown-item" href="./event.php">Event</a></li>
+            <li><a class="dropdown-item" href="./contact.php">Contact</a></li>
+
+            <?php if (isset($_SESSION['current_session'])) : ?>
+              <li><a class="dropdown-item" href="./admin.php">Admin</a></li>
+
+            <?php else: ?>
+              <li><a class="dropdown-item" href="./login.php">Sign in</a></li>
+
+            <?php endif; ?>
+
+            <!-- <li><a class="dropdown-item" href="./login.php">Sign in</a></li> -->
           </ul>
         </div>
 
@@ -246,9 +259,10 @@
         data-aos="fade-up-right"
         >
           <h2 class="featurette-heading fw-normal lh-1">
-            Kelvingrove Museum opened in 1901
-              <span class="text-muted fs-5 lh-1 fw-bold"> and is a firm favourite with local people and visitors. It has stunning architecture and a family friendly atmosphere.</span>
-            </h2>
+            Kelvingrove Museum opened in 1901 <br/>  </h2>
+              <p class="text-muted fs-5 fw-bold" style="line-height: normal"> 
+              and is a firm favourite with local people and visitors. It has stunning architecture and a family friendly atmosphere.</p>
+          
           <p class="lead fs-6">
             Explore our 22 galleries and discover everything from art to animals, 
             Ancient Egypt to Charles Rennie Mackintosh and so much more. 
@@ -260,7 +274,7 @@
 
         </div>
         <div class="col-md-5 order-md-1 d-flex align-items-center justify-content">
-            <img src="./assets/images/photo 1.png" alt="" 
+            <img src="./assets/images/photo1.png" alt="" 
             class="featurette-image img-fluid mx-auto d-flex align-items-center justify-content" 
             width="300" height="300"
             data-aos="fade-up-left"
@@ -387,31 +401,31 @@
           <img src="./assets/images/gallery3.jpg" alt="">
         </div>
         <div class="item">
-          <h4>4</h4>
+        <img src="./assets/images/gallery4.jpg" alt="">
         </div>
         <div class="item">
-          <h4>5</h4>
+          <img src="./assets/images/gallery5.jpeg" alt="">
         </div>
         <div class="item">
-          <h4>6</h4>
+          <img src="./assets/images/gallery6.jpeg" alt="">
         </div>
         <div class="item">
-          <h4>7</h4>
+          <img src="./assets/images/ima1.jpg" alt="">
         </div>
         <div class="item">
-          <h4>8</h4>
+          <img src="./assets/images/ima2.jpg" alt="">
         </div>
         <div class="item">
-          <h4>9</h4>
+          <img src="./assets/images/photo3.jpeg" alt="">
         </div>
         <div class="item">
-          <h4>10</h4>
+          <img src="./assets/images/ima3.jpg" alt="">
         </div>
         <div class="item">
-          <h4>11</h4>
+          <img src="./assets/images/photo1.jpeg" alt="">
         </div>
         <div class="item">
-          <h4>12</h4>
+          <img src="./assets/images/photo2.jpeg" alt="">
         </div>
       </div>
 
@@ -434,7 +448,12 @@
       </h1>
       <p class="mb-0">PEOPLE MAKE GLASGOW - Glasgow Life</p>
       <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-  
+      <p style="font-size: .7rem;"><small>
+        All Pictures from ART UK ® is a registered trade mark of the Public Catalogue Foundation. <br/> 
+        Art UK is the operating name of the Public Catalogue Foundation, a charity registered in England and Wales (1096185) and Scotland (SC048601).
+      </small></p>
+
+
     </div>
     </footer>
 

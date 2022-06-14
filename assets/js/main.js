@@ -1,14 +1,6 @@
-
-// try {
-//     const config = {headers: {Accept: 'application/json'}
-//  }
-
 $(function() {
-
 	'use strict';
-
 	// Form
-
 	var contactForm = function() {
 
 		if ($('#contactForm').length > 0 ) {
@@ -110,3 +102,35 @@ let hearMap = function() {
 				  ui.addBubble(bubble);
   }
 hearMap();
+
+
+
+// const getStoic = async () => {
+// 	let randomNumber = Math.floor(Math.random() * 10);
+//     return fetch(requestUrl)
+//       .then((response) => response.json())
+//       .then((data) => {
+//         let allImages = data.results[randomNumber];
+//         return allImages.urls.regular;
+// 	}).catch((e) => e.message);
+// 	return getStoic;
+	
+//	console.log(allImages)
+    // fetch("https://stoicquotesapi.com/v1/api/quotes/random")
+    // .then((response) => response.json())
+    // .then((data) => {
+    //  return data.body;
+    // }).catch((e) => e.message);
+    // return getStoic;
+
+// const getPhoto = async () => {
+//     try {
+//         let randomImage = await axios.get('https://api.unsplash.com/search/photos?query=london&client_id=TH_hAxlm82Yz_GKltWgLe6TMVOzDX0AT796zQd_OT0o')
+// 		return randomImage.data.body;
+// 		//return imageToDisplay.src = randomImage;
+// 		console.log(randomImage.data.body)
+//        }
+//     catch (e) {
+//         return "NO PHOTO AVAILABLE! SORRY!"
+//     }
+//}

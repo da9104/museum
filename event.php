@@ -1,3 +1,7 @@
+<?php
+    include_once 'includes/header.php';
+    $posts = getEvent($conn);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,95 +77,105 @@
  
       <header>
 
-        <nav class="autohide navbar navbar-expand-md fixed-top bg-transparent">
-          <div class="container-fluid">
-            <a class="navbar-brand" 
-            data-bs-toggle="offcanvas" 
-            href="#offcanvasExample" 
-            role="button" 
-            aria-controls="offcanvasExample"
-            > 
-              <i class="fas fa-bars" style="color: gray;" ></i>
-              <!-- <span class="navbar-toggler-icon"></span> -->
-            </a>
-    
-            <button 
-            style="border: 0;"
-            class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end mx-5" id="navbarCollapse" >
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./about.html">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./gallery.html">Gallery</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./event.html">Event</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./contact.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link"><i class="fas fa-search"></i></a>
-                </li>
-              </ul>
-            
-            </div>
-          </div>
-        </nav>
-    
-        <!-- OFF CANVAS -->
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-          <div class="offcanvas-header">
-            <img src="./assets/images/logo.png" alt=""
-            style="width:100px; border:1px solid #eee;"
-            class="offcanvas-title rounded-circle gap-0 mx-0" id="offcanvasExampleLabel"
-            >
-            <!-- <h5 class="offcanvas-title" id="offcanvasExampleLabel">National Museums Scotland</h5> -->
-            <h6 class="fw-bold" style="font-size: .9rem;">
-              Kelvingrove <br/>
-              Art Gallery and Museum
-            </h6>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-         
-          </div>
-          <div class="offcanvas-body">
-            <div>
-            
-            <p>Find us on Social Media.</p>
-            <p>
-              <!-- <i class="fab fa-instagram-square"></i>  -->
-              <i class="fab fa-instagram"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-facebook-square"></i>
-              <i class="fab fa-flickr"></i>
-            </p>
-    
-    
-            </div>
-            <div class="dropdown mt-3">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-                Menu
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Home</a></li>
-                <li><a class="dropdown-item" href="#">About</a></li>
-                <li><a class="dropdown-item" href="#">Gallery</a></li>
-                <li><a class="dropdown-item" href="#">Event</a></li>
-                <li><a class="dropdown-item" href="#">Contact</a></li>
-                <li><a class="dropdown-item" href="#">Admin</a></li>
-              </ul>
-            </div>
-          </div>
+   
+      <nav class="autohide navbar navbar-expand-md fixed-top bg-transparent">
+      <div class="container-fluid">
+        <a class="navbar-brand" 
+        data-bs-toggle="offcanvas" 
+        href="#offcanvasExample" 
+        role="button" 
+        aria-controls="offcanvasExample"
+        > 
+          <i class="fas fa-bars" style="color: gray;" ></i>
+          <!-- <span class="navbar-toggler-icon"></span> -->
+        </a>
+
+        <button 
+        style="border: 0;"
+        class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end mx-5" id="navbarCollapse" >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.php">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./gallery.php">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./event.php">Event</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./contact.php">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><i class="fas fa-search"></i></a>
+            </li>
+          </ul>
+        
         </div>
-    
-    
+      </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <img src="./assets/images/logo.png" alt=""
+        style="width:100px; border:1px solid #eee;"
+        class="offcanvas-title rounded-circle gap-0 mx-0" id="offcanvasExampleLabel"
+        >
+        <!-- <h5 class="offcanvas-title" id="offcanvasExampleLabel">National Museums Scotland</h5> -->
+        <h6 class="fw-bold" style="font-size: .9rem;">
+          Kelvingrove <br/>
+          Art Gallery and Museum
+        </h6>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+       
+        <div class="dropdown mt-3">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" style="border: 0;">
+            Menu
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="./index.php">Home</a></li>
+            <li><a class="dropdown-item" href="./about.php">About</a></li>
+            <li><a class="dropdown-item" href="./gallery.php">Gallery</a></li>
+            <li><a class="dropdown-item" href="./event.php">Event</a></li>
+            <li><a class="dropdown-item" href="./contact.php">Contact</a></li>
+
+            <?php if (isset($_SESSION['current_session'])) : ?>
+              <li><a class="dropdown-item" href="./admin.php">Admin</a></li>
+
+            <?php else: ?>
+              <li><a class="dropdown-item" href="./login.php">Sign in</a></li>
+
+            <?php endif; ?>
+
+            <!-- <li><a class="dropdown-item" href="./login.php">Sign in</a></li> -->
+          </ul>
+        </div>
+
+        <div class="mt-5">
+        
+            <!-- <i class="fab fa-instagram-square"></i>  -->
+            <ul>
+            <li>  Find us on Social Media. </li>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-flickr"></i>
+           </ul>
+  
+  
+          </div>
+
+      </div>
+    </div>
+
       </header>
    
   <main>
@@ -214,96 +228,35 @@
       <p class="caption">Glasgow Museums artworks Exhibitions</p>
 
     <!-- <a href="https://artuk.org/visit/collection/glasgow-museums-568" class="link"><span>More information</span></a> -->
+    </div>
+              <?php 
+              /*
+                   <?php print_r(getEvent($conn)); ?>
+            
+              
+               
 
-  </div>
+                   */
 
-    <div class="container py-5">   <!-- masonry START -->
-    <div class="row" data-masonry='{"percentPosition": true }'>
-      <div class="col-sm-6 col-lg-4 mb-4">
-        <div class="card">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-  
-          <div class="card-body">
-            <h5 class="card-title">Card title that wraps to a new line</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              ?>
+<div class="container">
+        <div class="col mb-5">
+          <div class="card mb-5">
+          <?php foreach ($posts as $post): ?>
+          <img src="<?= $post->img ?>" class="card-img-top " alt="..." >
+          <div class="card-body mb-5">
+            <h5 class="card-title"><?= $post->title ?></h5>
+            <p class="card-text"><?= $post->body ?></p>
+            <p class="card-text"><small class="text-muted"><?= $post->timestamp ?></small></p>
           </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4 mb-4">
-        <div class="card p-3">
-          <figure class="p-3 mb-0">
-            <blockquote class="blockquote">
-              <p>A well-known quote, contained in a blockquote element.</p>
-            </blockquote>
-            <figcaption class="blockquote-footer mb-0 text-muted">
-              Someone famous in <cite title="Source Title">Source Title</cite>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4 mb-4">
-        <div class="card">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-  
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <?php endforeach ?>
           </div>
+        
         </div>
-      </div>
-      <div class="col-sm-6 col-lg-4 mb-4">
-        <div class="card bg-primary text-white text-center p-3">
-          <figure class="mb-0">
-            <blockquote class="blockquote">
-              <p>A well-known quote, contained in a blockquote element.</p>
-            </blockquote>
-            <figcaption class="blockquote-footer mb-0 text-white">
-              Someone famous in <cite title="Source Title">Source Title</cite>
-            </figcaption>
-          </figure>
         </div>
-      </div>
-      <div class="col-sm-6 col-lg-4 mb-4">
-        <div class="card text-center">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has a regular title and short paragraph of text below it.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4 mb-4">
-        <div class="card">
-          <svg class="bd-placeholder-img card-img" width="100%" height="260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Card image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Card image</text></svg>
-  
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4 mb-4">
-        <div class="card p-3 text-end">
-          <figure class="mb-0">
-            <blockquote class="blockquote">
-              <p>A well-known quote, contained in a blockquote element.</p>
-            </blockquote>
-            <figcaption class="blockquote-footer mb-0 text-muted">
-              Someone famous in <cite title="Source Title">Source Title</cite>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-    </div> 
-  </div>     <!-- masonry END -->
+ </div>
 
-   
+
     <!-- FOOTER -->
  <footer>
      <div class="container">
@@ -320,6 +273,11 @@
       <p class="mb-0">PEOPLE MAKE GLASGOW - Glasgow Life</p>
 
       <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      <p style="font-size: .7rem;"><small>
+        All Pictures from ART UK ® is a registered trade mark of the Public Catalogue Foundation. <br/> 
+        Art UK is the operating name of the Public Catalogue Foundation, a charity registered in England and Wales (1096185) and Scotland (SC048601).
+      </small></p>
+  
     </div>
     </footer>
 

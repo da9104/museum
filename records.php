@@ -1,6 +1,5 @@
 <?php
     include_once 'includes/header.php';
-
     if (isset($_POST['author_id'], $_POST['title'], $_POST['body'])) {
         deletePost($conn, [
               'id' => $_GET['id'],
@@ -9,7 +8,6 @@
               'body' => $_POST['body'],
           ]);
       }
-
     $posts = getPosts($conn, $_GET['id'] ?? null);
     $users = getUsers($conn);
 ?>
@@ -29,17 +27,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script type="text/javascript" src='./map.js'></script>
-    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
-    type="text/javascript" charset="utf-8"></script>
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
-        type="text/javascript" charset="utf-8"></script>
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"
-        type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
-  
-
+   
   </head>
   <body>
     <style>
@@ -113,95 +101,102 @@
       
       <header>
 
-        <nav class="autohide navbar navbar-expand-md fixed-top bg-transparent">
-          <div class="container-fluid">
-            <a class="navbar-brand" 
-            data-bs-toggle="offcanvas" 
-            href="#offcanvasExample" 
-            role="button" 
-            aria-controls="offcanvasExample"
-            > 
-              <i class="fas fa-bars" style="color: gray;" ></i>
-              <!-- <span class="navbar-toggler-icon"></span> -->
-            </a>
-    
-            <button 
-            style="border: 0;"
-            class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end mx-5" id="navbarCollapse" >
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./about.html">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./gallery.html">Gallery</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./event.html">Event</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./contact.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link"><i class="fas fa-search"></i></a>
-                </li>
-              </ul>
-            
-            </div>
-          </div>
-        </nav>
-    
-        <!-- OFF CANVAS -->
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-          <div class="offcanvas-header">
-            <img src="./assets/images/logo.png" alt=""
-            style="width:100px; border:1px solid #eee;"
-            class="offcanvas-title rounded-circle gap-0 mx-0" id="offcanvasExampleLabel"
-            >
-            <!-- <h5 class="offcanvas-title" id="offcanvasExampleLabel">National Museums Scotland</h5> -->
-            <h6 class="fw-bold" style="font-size: .9rem;">
-              Kelvingrove <br/>
-              Art Gallery and Museum
-            </h6>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-         
-          </div>
-          <div class="offcanvas-body">
-            <div>
-            
-            <p>Find us on Social Media.</p>
-            <p>
-              <!-- <i class="fab fa-instagram-square"></i>  -->
-              <i class="fab fa-instagram"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-facebook-square"></i>
-              <i class="fab fa-flickr"></i>
-            </p>
-    
-    
-            </div>
-            <div class="dropdown mt-3">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-                Menu
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Home</a></li>
-                <li><a class="dropdown-item" href="#">About</a></li>
-                <li><a class="dropdown-item" href="#">Gallery</a></li>
-                <li><a class="dropdown-item" href="#">Event</a></li>
-                <li><a class="dropdown-item" href="#">Contact</a></li>
-                <li><a class="dropdown-item" href="#">Admin</a></li>
-              </ul>
-            </div>
-          </div>
+      <nav class="autohide navbar navbar-expand-md fixed-top bg-transparent">
+      <div class="container-fluid">
+        <a class="navbar-brand" 
+        data-bs-toggle="offcanvas" 
+        href="#offcanvasExample" 
+        role="button" 
+        aria-controls="offcanvasExample"
+        > 
+          <i class="fas fa-bars" style="color: gray;" ></i>
+          <!-- <span class="navbar-toggler-icon"></span> -->
+        </a>
+
+        <button 
+        style="border: 0;"
+        class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end mx-5" id="navbarCollapse" >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.php">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./gallery.php">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./event.php">Event</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./contact.php">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><i class="fas fa-search"></i></a>
+            </li>
+          </ul>
+        
         </div>
-    
-    
+      </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <img src="./assets/images/logo.png" alt=""
+        style="width:100px; border:1px solid #eee;"
+        class="offcanvas-title rounded-circle gap-0 mx-0" id="offcanvasExampleLabel"
+        >
+        <!-- <h5 class="offcanvas-title" id="offcanvasExampleLabel">National Museums Scotland</h5> -->
+        <h6 class="fw-bold" style="font-size: .9rem;">
+          Kelvingrove <br/>
+          Art Gallery and Museum
+        </h6>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+       
+        <div class="dropdown mt-3">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" style="border: 0;">
+            Menu
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="./index.php">Home</a></li>
+            <li><a class="dropdown-item" href="./about.php">About</a></li>
+            <li><a class="dropdown-item" href="./gallery.php">Gallery</a></li>
+            <li><a class="dropdown-item" href="./event.php">Event</a></li>
+            <li><a class="dropdown-item" href="./contact.php">Contact</a></li>
+
+            <?php if (isset($_SESSION['current_session'])) : ?>
+              <li><a class="dropdown-item" href="./login.php">Sign in</a></li>
+            <?php else: ?>
+              <li><a class="dropdown-item" href="./admin.php">admin</a></li>
+            <?php endif; ?>
+
+            <!-- <li><a class="dropdown-item" href="./login.php">Sign in</a></li> -->
+          </ul>
+        </div>
+
+        <div class="mt-5">
+        
+            <!-- <i class="fab fa-instagram-square"></i>  -->
+            <ul>
+            <li>  Find us on Social Media. </li>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-flickr"></i>
+           </ul>
+  
+  
+          </div>
+
+      </div>
+    </div>
+
       </header>
    
   <main>
@@ -246,9 +241,9 @@
 
  <div class="container">
     <?php if (isset($_GET['id'])): ?>
-          <a class=" lg:ml-20 sm:ml-10" href="edit.php?id=<?= $_GET['id'] ?>">Update post</a>
+          <a class=" lg:ml-20 sm:ml-10" href="./edit.php?id=<?= $_GET['id'] ?>">Update post</a>
       <?php else: ?>
-          <a class=" lg:ml-20 sm:ml-10" href="add.php">Create a new post</a>
+          <a class=" lg:ml-20 sm:ml-10" href="./add.php">Create a new post</a>
       <?php endif; ?>
  </div>
 
@@ -257,8 +252,9 @@
 <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4" data-masonry='{"percentPosition": true }'  >
 <?php foreach ($posts as $post): ?>
   <div class="col" >
-  <form action="records.php" method="POST">
-    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" 
+  <form class="records-form" action="records.php" method="POST">
+    <div 
+    class="records-card card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" 
     style="background-image: url('https://d3d00swyhr67nd.cloudfront.net/w550/GM_location_image_3.jpg'); 
     background-size: cover; 
     background-position: center top;
@@ -266,24 +262,25 @@
     id="gfg"
     >
       <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
-          
+      <a href="./records.php?id=<?= $post->id ?>"><h3><?= $post->title ?></h3></a> 
+      <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+
         <?= $post->body ?> </h2>
 
         <ul class="d-flex list-unstyled mt-auto">
           <li class="me-auto">
           <button 
                 type="submit"
-                class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                <a href="/delete.php?id=<?= $post->id ?>">Delete</a>
+                class="btn btn-danger">
+                <a href="./delete.php?id=<?= $post->id ?>">Delete</a>
                </button>        
            </li>
          
           <li class="me-auto">
           <button 
                 type="submit"
-                class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                <a href="/edit.php?id=<?= $post->id ?>">Edit</a>
+                class="btn btn-warning">
+                <a href="./edit.php?id=<?= $post->id ?>">Edit</a>
                </button>
           </li>
 
@@ -371,13 +368,50 @@ if(el_autohide){
 // DOMContentLoaded  end
 
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./assets/js/jquery.validate.min.js"></script>
 <script src="./assets/js/main.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
+
+<script>
+
+const requestUrl =
+    'https://api.unsplash.com/search/photos?query=london&client_id=TH_hAxlm82Yz_GKltWgLe6TMVOzDX0AT796zQd_OT0o';
+
+async function getNewImage() {
+    let randomNumber = Math.floor(Math.random() * 10);
+    return fetch(requestUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        let allImages = data.results[randomNumber];
+        return allImages.urls.regular;
+      });
+}
+
+ const getRandom = async () => {
+    const photoURL = await getNewImage();
+    setTimeout(() => {
+   // let parentElement = document.querySelector(".records-form");
+   // let elements = parentElement.querySelectorAll(".records-card").style.backgroundImage = `url('${photoURL}')`;
+    let elements =  document.querySelectorAll('.records-card')
+    for (var x = 0; x <elements.length; x++) {
+      elements[x].style.backgroundImage = `url('${photoURL}')`;
+    }
+  //	console.log(elements)
+    },3)
+}
+getRandom();
+
+// let parentElement = document.querySelector(".records-form");
+// $('.records-form ~ div').next().css('background-color', 'red');
+// console.log(parentElement);
+
+
+
+</script>
 
 
 </html>

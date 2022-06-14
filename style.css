@@ -12,7 +12,6 @@ body {
   color: #5a5a5a;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  line-height: 2;
 }
 
 a {
@@ -178,6 +177,24 @@ ul, li {
 .img-register {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(245, 246, 252, 0.52)), to(rgba(198, 205, 191, 0.73))), url("./assets/images/gallery5.jpeg");
   background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(198, 205, 191, 0.73)), url("./assets/images/gallery5.jpeg");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  color: white;
+}
+
+.img-login {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(245, 246, 252, 0.52)), to(rgba(198, 205, 191, 0.73))), url("./assets/images/gallery2.jpg");
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(198, 205, 191, 0.73)), url("./assets/images/gallery2.jpg");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  color: white;
+}
+
+.img-loggedin {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(245, 246, 252, 0.52)), to(rgba(198, 205, 191, 0.73))), url("./assets/images/photo1.jpeg");
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(198, 205, 191, 0.73)), url("./assets/images/photo1.jpeg");
   width: 100%;
   height: 100%;
   background-size: cover;

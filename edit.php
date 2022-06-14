@@ -1,9 +1,15 @@
-<?php 
- include_once 'includes/header.php';
-   if (isset($_POST) && count($_POST) > 0) {
-    $Response = Login($_POST); }
-  //  if (!isset($_POST) && count($_POST) > 0)
-  //      header('Location: index.php'); 
+<?php
+    include_once 'includes/header.php';
+    if (isset($_POST['author_id'], $_POST['title'], $_POST['body'])) {
+      updatePost($conn, [
+          'id' => $_GET['id'],
+          'author_id' => $_POST['author_id'],
+          'title' => $_POST['title'],
+          'body' => $_POST['body'],
+      ]);
+  }
+  $post = getPostWithId($conn, $_GET['id'] ?? null);
+  $users = getUsers($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +46,7 @@
             font-size: 3.5rem;
           }
         }
+  
         .b-example-divider {
           height: 3rem;
           background-color: rgba(0, 0, 0, .1);
@@ -80,27 +87,22 @@
           white-space: nowrap;
           -webkit-overflow-scrolling: touch;
         }
-          .form-signin {
-            max-width: 330px;
-            padding: 15px;
+
+          .form-add {
+            display: flex;
+            flex-direction: columns;
+            justify-content: center;
+            align-content: center
           }
 
-          .form-signin .form-floating:focus-within {
+          .form-add div {
+            max-width: 530px;
+            /* //padding: 15px; */
+          }
+
+          .form-add .form-floating:focus-within {
             z-index: 2;
           }
-
-          .form-signin input[type="email"] {
-            margin-bottom: -1px;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: 0;
-          }
-
-          .form-signin input[type="password"] {
-            margin-bottom: 10px;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-          }
-       
       </style>
   
 
@@ -180,9 +182,10 @@
 
             <?php if (isset($_SESSION['current_session'])) : ?>
               <li><a class="dropdown-item" href="./admin.php">Admin</a></li>
-             
+
             <?php else: ?>
               <li><a class="dropdown-item" href="./login.php">Sign in</a></li>
+
             <?php endif; ?>
 
             <!-- <li><a class="dropdown-item" href="./login.php">Sign in</a></li> -->
@@ -214,7 +217,7 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-            <div class="img-login">
+            <div class="img-register">
             </div>
 
           <div class="container">
@@ -224,7 +227,7 @@
                 data-aos-delay="5"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out">
-                Sign in</h6>
+                Sign up</h6>
                 <!-- <p>Some representative placeholder content for the second slide of the carousel.</p> -->
               <h2
               class="text-center"
@@ -232,7 +235,7 @@
                 data-aos-delay="5"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out" >
-                Welcome <br/>
+                Join us today  <br/>
               </h2>
               <!-- <p>Welcome to Kelvingrove 
                 Art Gallery and Museum</p> -->
@@ -246,56 +249,50 @@
   
     <!-- Carousel END-->
 
- <main class="form-signin w-100 m-auto">
-  <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="login" name="login">
-    <!-- <img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-                 <?php if (isset($Response['error'])): ?>
-                    
-                    <div class="alert alert-danger alert-dismissable mb-3"><b>Oops</b>, <?php echo $Response['error']; ?></div>
-                             
-                  <?php endif; ?>
-
-    <div class="form-floating">
-      <input 
-      type="text" 
-      id="username"
-      name="email"
-      class="form-control" 
-      id="floatingInput" 
-      placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
+    <section class="form-edit">
+    <div class="container px-3 py-3 mt-20">
+      <div class="flex flex-col justify-center items-center h-full g-6 text-gray-800">
+        <h1 class="font-bold text-2xl mb-10">Edit Article</h1>
+        <div class="md:w-8/12 lg:w-5/12 lg:ml-0 xl:w-96">
+            <form action="/edit.php?id=<?= $_GET['id'] ?>" method="post">
+              <div class="form-group mb-3">
+              <select name="author_id" id="author_id" class="mb-3">
+                  <?php foreach ($users as $user): ?>
+                          <option value="<?= $user->id ?>"<?= $post->author_id == $user->id ? ' selected' : '' ?>>
+                              <?= $user->first_name ?>
+                          </option>
+                      <?php endforeach; ?>
+              </select>
+                <input 
+                type="text" 
+                name="title" 
+                placeholder="Title" 
+                class="form-control" 
+                id=""
+                placeholder="Title"
+                value="<?= $post->title ?>"
+                >
+              </div>
+               <div class="form-group mb-3">
+                <textarea
+                name="body"
+                class="form-control "
+                id=""
+                rows="3"
+                placeholder="Description"
+              >
+              <?= $post->body ?>
+              </textarea>
+              </div>
+              <button 
+               type="submit"
+               class="w-100 btn btn-lg btn-primary mb-2">Submit</button>
+            </form>
+        </div>
+      </div>
     </div>
-    <div class="form-floating">
-      <input 
-      type="password"
-      id="password"
-      name="password" 
-      class="form-control" 
-      id="floatingPassword" 
-      placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary mb-2" 
-    type="submit"
-    id="submit" 
-    name="submit">Sign in</button>
-    <div class="text-center">
-       <p class="text-center font-semibold mx-4 mb-0">OR</p>
-     </div>
-  
-      <p class="text-center mb-5"> Do you have an account? <b> <br/><a href="./register.php"> Create account</a> </b> today.</p>
+  </section>
 
-            
-  </form>
-</main>
-    
     <br />
 
     <!-- FOOTER -->
@@ -314,11 +311,6 @@
       <p class="mb-0">PEOPLE MAKE GLASGOW - Glasgow Life</p>
 
       <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      <p style="font-size: .7rem;"><small>
-        All Pictures from ART UK ® is a registered trade mark of the Public Catalogue Foundation. <br/> 
-        Art UK is the operating name of the Public Catalogue Foundation, a charity registered in England and Wales (1096185) and Scotland (SC048601).
-      </small></p>
-   
     </div>
     </footer>
 

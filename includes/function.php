@@ -190,7 +190,6 @@ function updatePost($conn, array $postData)
 {
     // base query string
     $queryString = 'UPDATE posts SET `author_id` = :author_id, WHERE `id` = :id, `title` = :title,`body` = :body';
-
     // prepare and execute query
     $query = $conn->prepare($queryString);
     $query->execute($postData);
@@ -200,15 +199,12 @@ function getUserWithId($conn, int $id)
     // prepare and execute query
     $query = $conn->prepare('SELECT * from users where id = :id');
     $query->execute(['id' => $id]);
-
     // return the user
     return $query->fetch(PDO::FETCH_OBJ);
 }
 function deletePost($conn, array $postData) {
-
     $id = $_GET["id"];
     $queryString =  "DELETE FROM `posts` WHERE `id`= $id";
-
     // prepare and execute query
     $query = $conn->prepare($queryString);
     $query->execute($postData);
@@ -218,3 +214,14 @@ function setSession($key, $value)
     // set session variable
     $_SESSION[$key] = $value;
 }
+        function getEvent($conn, ?int $id = null) {
+        $result = [];
+        $query = $conn->prepare("SELECT * FROM gallery");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+            // # Iterate
+            //       while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            //       $result[] = $row;
+            //             }
+        return $result;
+ }

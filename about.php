@@ -95,95 +95,103 @@
  
       <header>
 
-        <nav class="autohide navbar navbar-expand-md fixed-top bg-transparent">
-          <div class="container-fluid">
-            <a class="navbar-brand" 
-            data-bs-toggle="offcanvas" 
-            href="#offcanvasExample" 
-            role="button" 
-            aria-controls="offcanvasExample"
-            > 
-              <i class="fas fa-bars" style="color: gray;" ></i>
-              <!-- <span class="navbar-toggler-icon"></span> -->
-            </a>
-    
-            <button 
-            style="border: 0;"
-            class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end mx-5" id="navbarCollapse" >
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./about.html">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./gallery.html">Gallery</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./event.html">Event</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./contact.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link"><i class="fas fa-search"></i></a>
-                </li>
-              </ul>
-            
-            </div>
-          </div>
-        </nav>
-    
-        <!-- OFF CANVAS -->
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-          <div class="offcanvas-header">
-            <img src="./assets/images/logo.png" alt=""
-            style="width:100px; border:1px solid #eee;"
-            class="offcanvas-title rounded-circle gap-0 mx-0" id="offcanvasExampleLabel"
-            >
-            <!-- <h5 class="offcanvas-title" id="offcanvasExampleLabel">National Museums Scotland</h5> -->
-            <h6 class="fw-bold" style="font-size: .9rem;">
-              Kelvingrove <br/>
-              Art Gallery and Museum
-            </h6>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-         
-          </div>
-          <div class="offcanvas-body">
-            <div>
-            
-            <p>Find us on Social Media.</p>
-            <p>
-              <!-- <i class="fab fa-instagram-square"></i>  -->
-              <i class="fab fa-instagram"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-facebook-square"></i>
-              <i class="fab fa-flickr"></i>
-            </p>
-    
-    
-            </div>
-            <div class="dropdown mt-3">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-                Menu
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Home</a></li>
-                <li><a class="dropdown-item" href="#">About</a></li>
-                <li><a class="dropdown-item" href="#">Gallery</a></li>
-                <li><a class="dropdown-item" href="#">Event</a></li>
-                <li><a class="dropdown-item" href="#">Contact</a></li>
-                <li><a class="dropdown-item" href="#">Admin</a></li>
-              </ul>
-            </div>
-          </div>
+      <nav class="autohide navbar navbar-expand-md fixed-top bg-transparent">
+      <div class="container-fluid">
+        <a class="navbar-brand" 
+        data-bs-toggle="offcanvas" 
+        href="#offcanvasExample" 
+        role="button" 
+        aria-controls="offcanvasExample"
+        > 
+          <i class="fas fa-bars" style="color: gray;" ></i>
+          <!-- <span class="navbar-toggler-icon"></span> -->
+        </a>
+
+        <button 
+        style="border: 0;"
+        class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end mx-5" id="navbarCollapse" >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.php">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./gallery.php">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./event.php">Event</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./contact.php">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><i class="fas fa-search"></i></a>
+            </li>
+          </ul>
+        
         </div>
-    
-    
+      </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <img src="./assets/images/logo.png" alt=""
+        style="width:100px; border:1px solid #eee;"
+        class="offcanvas-title rounded-circle gap-0 mx-0" id="offcanvasExampleLabel"
+        >
+        <!-- <h5 class="offcanvas-title" id="offcanvasExampleLabel">National Museums Scotland</h5> -->
+        <h6 class="fw-bold" style="font-size: .9rem;">
+          Kelvingrove <br/>
+          Art Gallery and Museum
+        </h6>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+       
+        <div class="dropdown mt-3">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" style="border: 0;">
+            Menu
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="./index.php">Home</a></li>
+            <li><a class="dropdown-item" href="./about.php">About</a></li>
+            <li><a class="dropdown-item" href="./gallery.php">Gallery</a></li>
+            <li><a class="dropdown-item" href="./event.php">Event</a></li>
+            <li><a class="dropdown-item" href="./contact.php">Contact</a></li>
+
+            <?php if (isset($_SESSION['current_session'])) : ?>
+              <li><a class="dropdown-item" href="./admin.php">Admin</a></li>
+
+            <?php else: ?>
+              <li><a class="dropdown-item" href="./login.php">Sign in</a></li>
+
+            <?php endif; ?>
+
+            <!-- <li><a class="dropdown-item" href="./login.php">Sign in</a></li> -->
+          </ul>
+        </div>
+
+        <div class="mt-5">
+        
+            <!-- <i class="fab fa-instagram-square"></i>  -->
+            <ul>
+            <li>  Find us on Social Media. </li>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-flickr"></i>
+           </ul>
+  
+  
+          </div>
+
+      </div>
+    </div>
       </header>
    
   <main>
