@@ -354,7 +354,7 @@
       </div><!-- /.row -->
   
   
-      <!-- START THE FEATURETTES -->
+      <!-- START THE FEATURETTES
   
       <hr class="featurette-divider">
   
@@ -384,7 +384,7 @@
       </div>
   
       <hr class="featurette-divider">
-  
+   -->
       <!-- /END THE FEATURETTES -->
   
       <div class="owl-carousel owl-theme">
