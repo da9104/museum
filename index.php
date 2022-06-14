@@ -1,7 +1,7 @@
 <?php
     include_once 'includes/header.php';
-    if (!isset($_SESSION['current_session']))
-    header('Location: login.php'); 
+    // if (!isset($_SESSION['current_session']))
+    // header('Location: login.php'); 
     // if (isset($_POST) && count($_POST) > 0) {
     // $Response = Login($_POST); }
     $posts = getPosts($conn, $_GET['id'] ?? null);
@@ -325,7 +325,7 @@
 
                        </div>
 
-          <h2 class="fw-normal mt-3">Heading</h2>
+          <h2 class="fw-normal mt-3">Opening Time</h2>
           <p>
             Monday - Thursday <br/>
             Saturday: 10am-5pm <br/>
@@ -343,7 +343,7 @@
           
               </div>
   
-          <h2 class="fw-normal">Heading</h2>
+          <h2 class="fw-normal mt-3 ">Special Event</h2>
           <p>
             The organ recitals will be <br/>
             performed daily at 1pm, <br/>
